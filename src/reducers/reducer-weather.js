@@ -17,6 +17,7 @@ export default function(state = [], action){
         case FETCH_WEATHER:
         //Add Fetched data to the state
         // Note - First part is pushed to top of the array
+        console.log(action.payload)
         return [ action.payload.data, ...state ];
         // alternative code
         //return state.concat([action.payload.data]);
