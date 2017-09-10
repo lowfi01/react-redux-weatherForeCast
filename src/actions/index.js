@@ -21,6 +21,9 @@ export function fetchWeather(city) {
     // Note - we are receiving a promise back... so request.then().catch() will work
     const request = axios.get(url)
 
+
+    console.log(`Request: `, request)
+
     return {
         type: FETCH_WEATHER,
         // Send promise back as payload

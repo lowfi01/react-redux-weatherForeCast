@@ -21,7 +21,7 @@ class SearchBar extends Component{
 
     // DOM event handlers return an event
     onInputChange(event) {
-        console.log(event.target.value);
+        //console.log(event.target.value);
 
         //Update Component state with the event.target.value
         //This will set the state to the input values entered by user
