@@ -34,6 +34,7 @@ export default class SearchBar extends Component{
         event.preventDefault();
 
         // logic - We need to go and fetch weather data on submit
+        
     }
 
     render() {
