@@ -26,11 +26,29 @@ export default class SearchBar extends Component{
         this.setState({term: event.target.value})
     };
 
+
+
+    onFormSubmit(event){
+
+        // Prevent html re-rending on enter & submit
+        event.preventDefault();
+
+        // logic - We need to go and fetch weather data on submit
+    }
+
     render() {
         return (
             <div>
-                <form className="input-group">
-                    <input  onChange={this.onInputChange.bind(this)} value={this.state.term} className="form-control" placeholder="Get a five-day forecast in your favorite cities"/>
+                <form className="input-group"
+                    onSubmit={
+                        // new submit fuction
+                        this.onFormSubmit.bind(this)}
+                    >
+                    <input  
+                        className="form-control"
+                        onChange={this.onInputChange.bind(this)} 
+                        value={this.state.term}  
+                        placeholder="Get a five-day forecast in your favorite cities"/>
                     <span className="input-group-btn">
                         <button type="submit" className="btn btn-secondary">Submit</ button> 
                     </span>
