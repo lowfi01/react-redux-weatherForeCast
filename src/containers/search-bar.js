@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from './../actions/index';
 
 
-export default class SearchBar extends Component{
+class SearchBar extends Component{
     //Create a controlled field by declaring a component level state
     //This state will update on input & then render to the input field as it's value,
     //This is in-essence the input value - But we can access it & in turn
@@ -34,7 +36,22 @@ export default class SearchBar extends Component{
         event.preventDefault();
 
         // logic - We need to go and fetch weather data on submit
-        
+        // Call Action - Pass city as argument
+        // result will return promise - .then(data){ data.payload.data }
+        // var result = this.props.fetchWeather('texas');
+        // result.then((weather) => {
+        //     // Note - you can use de-constructor here (weather) = ({payload}) 
+        //     console.log(weather.payload.data.list[0].main.temp)
+        // })
+
+
+        // Note - code above was my own attempt to play with data
+        // pass the term state as argument
+        // term is the search result
+        this.props.fetchWeather(this.state.term);
+        // clear search result input field for convience
+        this.setState({term: ''});
+
     }
 
     render() {
@@ -60,3 +77,12 @@ export default class SearchBar extends Component{
 
 
 }
+
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        fetchWeather
+    }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar)
