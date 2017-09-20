@@ -46,6 +46,8 @@ class SearchBar extends Component{
 
 
         // Note - code above was my own attempt to play with data
+        //  - ( bad approach as it does not pass result to redux )
+        
         // pass the term state as argument
         // term is the search result
         this.props.fetchWeather(this.state.term);
@@ -57,9 +59,11 @@ class SearchBar extends Component{
     render() {
         return (
             <div>
+                {/* //using form for additional functionality
+                // bootstrap input-group */}
                 <form className="input-group"
                     onSubmit={
-                        // new submit fuction
+                        // new submit function
                         this.onFormSubmit.bind(this)}
                     >
                     <input  
@@ -67,6 +71,8 @@ class SearchBar extends Component{
                         onChange={this.onInputChange.bind(this)} 
                         value={this.state.term}  
                         placeholder="Get a five-day forecast in your favorite cities"/>
+                    {/* // span is for styling 
+                    // using bootstrap className - google input-group bootstrap v4 */}
                     <span className="input-group-btn">
                         <button type="submit" className="btn btn-secondary">Submit</ button> 
                     </span>
