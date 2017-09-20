@@ -14,7 +14,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER'
 // Action - fetch API
 export function fetchWeather(city) {
     // make country code static for now
-    const countryCode = 'us'
+    const countryCode = 'aus'
     const url = `${ROOT_URL}&q=${city},${countryCode}`;
 
     // Use axios to make a get request
